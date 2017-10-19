@@ -1,0 +1,24 @@
+{
+  "name": "civic-hackathon-server",
+  "version": "1.0.0",
+  "description": "civic-hackathon-server",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/BilalAlam173/civic-hackathon-server.git"
+  },
+  "author": "bilal",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/BilalAlam173/civic-hackathon-server/issues"
+  },
+  "homepage": "https://github.com/BilalAlam173/civic-hackathon-server#readme",
+  "dependencies": {
+    "express": "^4.16.2",
+    "mysql": "^2.15.0",
+    "require": "^2.4.20"
+  }
+}
