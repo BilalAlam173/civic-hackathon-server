@@ -17,6 +17,7 @@
   },
   "homepage": "https://github.com/BilalAlam173/civic-hackathon-server#readme",
   "dependencies": {
+    "cors": "^2.8.4",
     "express": "^4.16.2",
     "mysql": "^2.15.0",
     "require": "^2.4.20"
