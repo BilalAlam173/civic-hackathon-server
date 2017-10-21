@@ -4,6 +4,9 @@ const bodyParser = require('body-parser');
 const db = require('./src/dbconnection'); //reference of dbconnection.js
 const citizen = require('./src/citizen');
 const issue = require('./src/issue');
+const issue_citizen_relation = require('./src/issue_citizen_relation');
+const journalist_issue_relation = require('./src/journalist_issue_relation');
+const location = require('./src/location');
 const journalist = require('./src/journalist');
 const authority = require('./src/authority');
 const alert = require('./src/alert');
@@ -401,6 +404,198 @@ app.post('/issue/update', function(req, res) {
 //create
 
 //==>issues<==
+
+//==>issue_citizen_relation<==
+
+//list
+app.get('/journalist_issue_relation/list', function(req, res) {
+    journalist_issue_relation.list(function(err, rows) {
+        if (err) { res.send(err); } else { res.send(rows); }
+    });
+});
+//list
+
+//readOne
+app.get('/journalist_issue_relation/readOne', function(req, res) {
+    var id = req.query.id;
+    journalist_issue_relation.readOne(id, function(err, rows) {
+        if (err) { res.send(err); } else { res.send(rows); }
+    });
+});
+//readOne
+
+//create
+app.post('/journalist_issue_relation/create', function(req, res) {
+    var obj = req.body;
+    journalist_issue_relation.create(obj, function(err, rows) {
+        if (err) { res.send(err); } else { res.send(rows); }
+    });
+});
+//create
+
+//delete
+app.get('/journalist_issue_relation/delete', function(req, res) {
+    var id = req.query.id;
+    journalist_issue_relation.delete(id, function(err, rows) {
+        if (err) { res.send(err); } else { res.send(rows); }
+    });
+});
+//delete
+
+//update
+app.post('/journalist_issue_relation/update', function(req, res) {
+    var obj = req.body;
+    journalist_issue_relation.update(obj, function(err, rows) {
+        if (err) { res.send(err); } else { res.send(rows); }
+    });
+});
+//create
+
+//==>issue_citizen_relation<==
+
+//==>journalist_issue_relation<==
+
+//list
+app.get('/journalist_issue_relation/list', function(req, res) {
+    journalist_issue_relation.list(function(err, rows) {
+        if (err) { res.send(err); } else { res.send(rows); }
+    });
+});
+//list
+
+//readOne
+app.get('/journalist_issue_relation/readOne', function(req, res) {
+    var id = req.query.id;
+    journalist_issue_relation.readOne(id, function(err, rows) {
+        if (err) { res.send(err); } else { res.send(rows); }
+    });
+});
+//readOne
+
+//create
+app.post('/journalist_issue_relation/create', function(req, res) {
+    var obj = req.body;
+    journalist_issue_relation.create(obj, function(err, rows) {
+        if (err) { res.send(err); } else { res.send(rows); }
+    });
+});
+//create
+
+//delete
+app.get('/journalist_issue_relation/delete', function(req, res) {
+    var id = req.query.id;
+    journalist_issue_relation.delete(id, function(err, rows) {
+        if (err) { res.send(err); } else { res.send(rows); }
+    });
+});
+//delete
+
+//update
+app.post('/journalist_issue_relation/update', function(req, res) {
+    var obj = req.body;
+    journalist_issue_relation.update(obj, function(err, rows) {
+        if (err) { res.send(err); } else { res.send(rows); }
+    });
+});
+//create
+
+//==>journalist_issue_relation<==
+
+//==>journalist_issue_relation<==
+
+//list
+app.get('/journalist_issue_relation/list', function(req, res) {
+    journalist_issue_relation.list(function(err, rows) {
+        if (err) { res.send(err); } else { res.send(rows); }
+    });
+});
+//list
+
+//readOne
+app.get('/journalist_issue_relation/readOne', function(req, res) {
+    var id = req.query.id;
+    journalist_issue_relation.readOne(id, function(err, rows) {
+        if (err) { res.send(err); } else { res.send(rows); }
+    });
+});
+//readOne
+
+//create
+app.post('/journalist_issue_relation/create', function(req, res) {
+    var obj = req.body;
+    journalist_issue_relation.create(obj, function(err, rows) {
+        if (err) { res.send(err); } else { res.send(rows); }
+    });
+});
+//create
+
+//delete
+app.get('/journalist_issue_relation/delete', function(req, res) {
+    var id = req.query.id;
+    journalist_issue_relation.delete(id, function(err, rows) {
+        if (err) { res.send(err); } else { res.send(rows); }
+    });
+});
+//delete
+
+//update
+app.post('/journalist_issue_relation/update', function(req, res) {
+    var obj = req.body;
+    journalist_issue_relation.update(obj, function(err, rows) {
+        if (err) { res.send(err); } else { res.send(rows); }
+    });
+});
+//create
+
+//==>journalist_issue_relation<==
+
+//==>location<==
+
+//list
+app.get('/location/list', function(req, res) {
+    location.list(function(err, rows) {
+        if (err) { res.send(err); } else { res.send(rows); }
+    });
+});
+//list
+
+//readOne
+app.get('/location/readOne', function(req, res) {
+    var id = req.query.id;
+    location.readOne(id, function(err, rows) {
+        if (err) { res.send(err); } else { res.send(rows); }
+    });
+});
+//readOne
+
+//create
+app.post('/location/create', function(req, res) {
+    var obj = req.body;
+    location.create(obj, function(err, rows) {
+        if (err) { res.send(err); } else { res.send(rows); }
+    });
+});
+//create
+
+//delete
+app.get('/location/delete', function(req, res) {
+    var id = req.query.id;
+    location.delete(id, function(err, rows) {
+        if (err) { res.send(err); } else { res.send(rows); }
+    });
+});
+//delete
+
+//update
+app.post('/location/update', function(req, res) {
+    var obj = req.body;
+    location.update(obj, function(err, rows) {
+        if (err) { res.send(err); } else { res.send(rows); }
+    });
+});
+//create
+
+//==>location<==
 
 
 //==>server render<==
