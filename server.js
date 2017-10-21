@@ -54,15 +54,7 @@ app.get('/test',function(req,res){
 //list
 app.get('/citizen/list',function(req,res){
     citizen.list(function(err,rows){       
-if(err)
-{
-res.send(err);
-}
-else
-{
-res.send(rows);
-}
-    });
+if(err){res.send(err);}else{res.send(rows);}});
 });
 //list
 
@@ -70,15 +62,7 @@ res.send(rows);
 app.get('/citizen/readOne',function(req,res){
     var id=req.query.id;
     citizen.readOne(id,function(err,rows){       
-if(err)
-{
-res.send(err);
-}
-else
-{
-res.send(rows);
-}
-    });
+if(err){res.send(err);}else{res.send(rows);}});
 });
 //readOne
 
@@ -87,15 +71,7 @@ app.get('/citizen/auth',function(req,res){
     var email=req.query.email;
     var password=req.query.password;
     citizen.auth(email,password,function(err,rows){       
-if(err)
-{
-res.send(err);
-}
-else
-{
-res.send(rows);
-}
-    });
+if(err){res.send(err);}else{res.send(rows);}});
 });
 //auth
 
@@ -103,15 +79,7 @@ res.send(rows);
 app.post('/citizen/create',function(req,res){
     var obj=req.body;
     citizen.create(obj,function(err,rows){       
-if(err)
-{
-res.send(err);
-}
-else
-{
-res.send(rows);
-}
-    });
+if(err){res.send(err);}else{res.send(rows);}});
 });
 //create
 
@@ -119,31 +87,15 @@ res.send(rows);
 app.get('/citizen/delete',function(req,res){
     var id=req.query.id;
     citizen.delete(id,function(err,rows){       
-if(err)
-{
-res.send(err);
-}
-else
-{
-res.send(rows);
-}
-    });
+if(err){res.send(err);}else{res.send(rows);}});
 });
-//create
+//delete
 
-//create
+//update
 app.post('/citizen/update',function(req,res){
     var obj=req.body;
     citizen.update(obj,function(err,rows){       
-if(err)
-{
-res.send(err);
-}
-else
-{
-res.send(rows);
-}
-    });
+if(err){res.send(err);}else{res.send(rows);}});
 });
 //create
 
