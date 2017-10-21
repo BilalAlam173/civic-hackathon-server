@@ -23,6 +23,14 @@ var authority = {
             authority.Password
         ], callback);
     },
+    auth:function(email,password,callback){
+        console.log(email+" - "+password);
+        return db.query("SELECT * FROM `authority` WHERE email=? AND Password=?",
+        [
+            email,
+            password
+        ],callback);
+        },
     delete: function(id, callback) {
         return db.query("delete from authority where ID=?", [id], callback);
     },
