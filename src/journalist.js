@@ -10,7 +10,7 @@ var journalist = {
 
         return db.query("select * from journalist where Id=?", [id], callback);
     },
-    create: function(citizen, callback) {
+    create: function(journalist, callback) {
         return db.query("INSERT INTO `journalist`(`Id`, `FullName`, `Email`, `Phone`, `Designation`, `Firm`,`IsApproved`, `Password`) values(?,?,?,?,?,?,?,?)", [
             null,
             journalist.FullName,
@@ -20,6 +20,13 @@ var journalist = {
             journalist.Firm,
             true,
             journalist.Password
+        ], callback);
+    },
+    auth: function(email, password, callback) {
+        console.log(email + " - " + password);
+        return db.query("SELECT * FROM `journalist` WHERE Email=? AND Password=?", [
+            email,
+            password
         ], callback);
     },
     delete: function(id, callback) {
@@ -45,8 +52,8 @@ module.exports = journalist;
 `ID`=[value-1],
 `FullName`=[value-2],
 `Email`=[value-3],
-`Phone`=[value-5],
-`Designation`=[value-4],
+`Phone`=[value-4],
+`Designation`=[value-5],
 `Firm`=[value-6],
 `IsApproved`=[value-7],
 `Password`=[value-8]
