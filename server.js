@@ -3,6 +3,7 @@ const express = require('express');
 const bodyParser = require('body-parser');
 const db = require('./src/dbconnection'); //reference of dbconnection.js
 const citizen = require('./src/citizen');
+const issue = require('./src/issue');
 const journalist = require('./src/journalist');
 const authority = require('./src/authority');
 const alert = require('./src/alert');
@@ -352,6 +353,55 @@ app.post('/alert/update', function(req, res) {
 //create
 
 //==>alert<==
+
+//==>issue<==
+
+//list
+app.get('/issue/list', function(req, res) {
+    issue.list(function(err, rows) {
+        if (err) { res.send(err); } else { res.send(rows); }
+    });
+});
+//list
+
+//readOne
+app.get('/issue/readOne', function(req, res) {
+    var id = req.query.id;
+    issue.readOne(id, function(err, rows) {
+        if (err) { res.send(err); } else { res.send(rows); }
+    });
+});
+//readOne
+
+//create
+app.post('/issue/create', function(req, res) {
+    var obj = req.body;
+    issue.create(obj, function(err, rows) {
+        if (err) { res.send(err); } else { res.send(rows); }
+    });
+});
+//create
+
+//delete
+app.get('/issue/delete', function(req, res) {
+    var id = req.query.id;
+    issue.delete(id, function(err, rows) {
+        if (err) { res.send(err); } else { res.send(rows); }
+    });
+});
+//delete
+
+//update
+app.post('/issue/update', function(req, res) {
+    var obj = req.body;
+    issue.update(obj, function(err, rows) {
+        if (err) { res.send(err); } else { res.send(rows); }
+    });
+});
+//create
+
+//==>issues<==
+
 
 //==>server render<==
 app.listen(process.env.PORT || 8090, function() {
