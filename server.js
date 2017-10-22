@@ -381,7 +381,6 @@ app.get('/issue/customRow', function(req, res) {
     var id = req.query.id;
     issue.customRow(id, function(err, rows) {
         if (err) { res.send(err); } else {
-            console.log(rows);
             res.send(rows);
         }
     });
