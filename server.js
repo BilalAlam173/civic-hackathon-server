@@ -189,7 +189,7 @@ app.post('/citizen/update', function(req, res) {
         if (err) { res.send(err); } else { res.send(rows); }
     });
 });
-//create
+//update
 
 //==>Citizen<==
 
@@ -372,6 +372,18 @@ app.get('/issue/readOne', function(req, res) {
     var id = req.query.id;
     issue.readOne(id, function(err, rows) {
         if (err) { res.send(err); } else { res.send(rows); }
+    });
+});
+//readOne
+
+//readOne
+app.get('/issue/customRow', function(req, res) {
+    var id = req.query.id;
+    issue.customRow(id, function(err, rows) {
+        if (err) { res.send(err); } else {
+            console.log(rows);
+            res.send(rows);
+        }
     });
 });
 //readOne

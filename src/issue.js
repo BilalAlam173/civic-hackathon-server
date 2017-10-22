@@ -10,6 +10,10 @@ var issue = {
 
         return db.query("select * from issue where Id=?", [id], callback);
     },
+    customRow: function(Citizen_Id, callback) {
+        console.log("abc", Citizen_Id);
+        return db.query("select * from issue where Citizen_Id=?", [Citizen_Id], callback);
+    },
     create: function(issue, callback) {
         return db.query("INSERT INTO `issue`(`Id`, `Title`, `Description`, `IsSolved`, `IsCovered`, `Priority`,`Category`, `Location`,'Date','Citizen_Id') values(?,?,?,?,?,?,?,?,?,?)", [
             null,
