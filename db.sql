@@ -8,19 +8,19 @@ SET @OLD_FOREIGN_KEY_CHECKS=@@FOREIGN_KEY_CHECKS, FOREIGN_KEY_CHECKS=0;
 SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='TRADITIONAL,ALLOW_INVALID_DATES';
 
 -- -----------------------------------------------------
--- Schema db
+-- Schema sql12201245
 -- -----------------------------------------------------
 
 -- -----------------------------------------------------
--- Schema db
+-- Schema sql12201245
 -- -----------------------------------------------------
-CREATE SCHEMA IF NOT EXISTS `db` DEFAULT CHARACTER SET utf8 ;
-USE `db` ;
+CREATE SCHEMA IF NOT EXISTS `sql12201245` DEFAULT CHARACTER SET utf8 ;
+USE `sql12201245` ;
 
 -- -----------------------------------------------------
--- Table `db`.`Citizen`
+-- Table `sql12201245`.`Citizen`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db`.`Citizen` (
+CREATE TABLE IF NOT EXISTS `sql12201245`.`Citizen` (
   `Id` INT NOT NULL AUTO_INCREMENT,
   `FullName` VARCHAR(255) NULL,
   `Email` VARCHAR(255) NULL,
@@ -39,9 +39,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `db`.`Authority`
+-- Table `sql12201245`.`Authority`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db`.`Authority` (
+CREATE TABLE IF NOT EXISTS `sql12201245`.`Authority` (
   `ID` INT NOT NULL AUTO_INCREMENT,
   `FullName` VARCHAR(255) NULL,
   `Email` VARCHAR(255) NULL,
@@ -57,9 +57,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `db`.`Journalist`
+-- Table `sql12201245`.`Journalist`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db`.`Journalist` (
+CREATE TABLE IF NOT EXISTS `sql12201245`.`Journalist` (
   `Id` INT NOT NULL AUTO_INCREMENT,
   `FullName` VARCHAR(255) NULL,
   `Email` VARCHAR(255) NULL,
@@ -74,9 +74,9 @@ ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `db`.`Issue`
+-- Table `sql12201245`.`Issue`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db`.`Issue` (
+CREATE TABLE IF NOT EXISTS `sql12201245`.`Issue` (
   `Id` INT NOT NULL AUTO_INCREMENT,
   `Title` VARCHAR(255) NULL,
   `Description` VARCHAR(255) NULL,
@@ -92,16 +92,16 @@ CREATE TABLE IF NOT EXISTS `db`.`Issue` (
   INDEX `fk_Issue_Citizen_idx` (`Citizen_Id` ASC),
   CONSTRAINT `fk_Issue_Citizen`
     FOREIGN KEY (`Citizen_Id`)
-    REFERENCES `db`.`Citizen` (`Id`)
+    REFERENCES `sql12201245`.`Citizen` (`Id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `db`.`Alert`
+-- Table `sql12201245`.`Alert`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db`.`Alert` (
+CREATE TABLE IF NOT EXISTS `sql12201245`.`Alert` (
   `Id` INT NOT NULL AUTO_INCREMENT,
   `Title` VARCHAR(255) NULL,
   `Description` VARCHAR(255) NULL,
@@ -112,16 +112,16 @@ CREATE TABLE IF NOT EXISTS `db`.`Alert` (
   INDEX `fk_Alert_Authority1_idx` (`Authority_ID` ASC),
   CONSTRAINT `fk_Alert_Authority1`
     FOREIGN KEY (`Authority_ID`)
-    REFERENCES `db`.`Authority` (`ID`)
+    REFERENCES `sql12201245`.`Authority` (`ID`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `db`.`Location`
+-- Table `sql12201245`.`Location`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db`.`Location` (
+CREATE TABLE IF NOT EXISTS `sql12201245`.`Location` (
   `Id` INT NOT NULL AUTO_INCREMENT,
   `Lat` VARCHAR(255) NULL,
   `Long` VARCHAR(255) NULL,
@@ -130,16 +130,16 @@ CREATE TABLE IF NOT EXISTS `db`.`Location` (
   INDEX `fk_Location_Issue1_idx` (`Issue_Id` ASC),
   CONSTRAINT `fk_Location_Issue1`
     FOREIGN KEY (`Issue_Id`)
-    REFERENCES `db`.`Issue` (`Id`)
+    REFERENCES `sql12201245`.`Issue` (`Id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `db`.`Issue_Citizen_Relation`
+-- Table `sql12201245`.`Issue_Citizen_Relation`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db`.`Issue_Citizen_Relation` (
+CREATE TABLE IF NOT EXISTS `sql12201245`.`Issue_Citizen_Relation` (
   `Id` INT NOT NULL AUTO_INCREMENT,
   `Date` VARCHAR(255) NULL,
   `Issue_Id` INT NOT NULL,
@@ -149,21 +149,21 @@ CREATE TABLE IF NOT EXISTS `db`.`Issue_Citizen_Relation` (
   INDEX `fk_Issue_Citizen_Relation_Citizen1_idx` (`Citizen_Id` ASC),
   CONSTRAINT `fk_Issue_Citizen_Relation_Issue1`
     FOREIGN KEY (`Issue_Id`)
-    REFERENCES `db`.`Issue` (`Id`)
+    REFERENCES `sql12201245`.`Issue` (`Id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Issue_Citizen_Relation_Citizen1`
     FOREIGN KEY (`Citizen_Id`)
-    REFERENCES `db`.`Citizen` (`Id`)
+    REFERENCES `sql12201245`.`Citizen` (`Id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
 
 
 -- -----------------------------------------------------
--- Table `db`.`Journalist_Issue_Relation`
+-- Table `sql12201245`.`Journalist_Issue_Relation`
 -- -----------------------------------------------------
-CREATE TABLE IF NOT EXISTS `db`.`Journalist_Issue_Relation` (
+CREATE TABLE IF NOT EXISTS `sql12201245`.`Journalist_Issue_Relation` (
   `Id` INT NOT NULL AUTO_INCREMENT,
   `Date` VARCHAR(45) NULL,
   `Journalist_Id` INT NOT NULL,
@@ -175,12 +175,12 @@ CREATE TABLE IF NOT EXISTS `db`.`Journalist_Issue_Relation` (
   INDEX `fk_Journalist_Issue_Relation_Issue1_idx` (`Issue_Id` ASC),
   CONSTRAINT `fk_Journalist_Issue_Relation_Journalist1`
     FOREIGN KEY (`Journalist_Id`)
-    REFERENCES `db`.`Journalist` (`Id`)
+    REFERENCES `sql12201245`.`Journalist` (`Id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION,
   CONSTRAINT `fk_Journalist_Issue_Relation_Issue1`
     FOREIGN KEY (`Issue_Id`)
-    REFERENCES `db`.`Issue` (`Id`)
+    REFERENCES `sql12201245`.`Issue` (`Id`)
     ON DELETE NO ACTION
     ON UPDATE NO ACTION)
 ENGINE = InnoDB;
