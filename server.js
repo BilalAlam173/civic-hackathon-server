@@ -159,6 +159,7 @@ app.get('/citizen/auth', function(req, res) {
     var email = req.query.email;
     var password = req.query.password;
     citizen.auth(email, password, function(err, rows) {
+        console.log(db.state);
         if (err) { res.send(err); } else { res.send(rows); }
     });
 });

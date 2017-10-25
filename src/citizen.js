@@ -29,7 +29,7 @@ var citizen={
     ],callback);
     },
     auth:function(email,password,callback){
-        console.log(email+" - "+password);
+        console.log("status: "+db.state);
         return db.query("SELECT * FROM `citizen` WHERE email=? AND Password=?",
         [
             email,
