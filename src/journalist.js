@@ -1,53 +1,53 @@
 const db = require("./dbconnection");
-var journalist = {
+var Journalist = {
 
     list: function(callback) {
 
-        return db.query("Select * from journalist", callback);
+        return db.query("Select * from Journalist", callback);
 
     },
     readOne: function(id, callback) {
 
-        return db.query("select * from journalist where Id=?", [id], callback);
+        return db.query("select * from Journalist where Id=?", [id], callback);
     },
-    create: function(journalist, callback) {
-        return db.query("INSERT INTO `journalist`(`Id`, `FullName`, `Email`, `Phone`, `Designation`, `Firm`,`IsApproved`, `Password`) values(?,?,?,?,?,?,?,?)", [
+    create: function(Journalist, callback) {
+        return db.query("INSERT INTO `Journalist`(`Id`, `FullName`, `Email`, `Phone`, `Designation`, `Firm`,`IsApproved`, `Password`) values(?,?,?,?,?,?,?,?)", [
             null,
-            journalist.FullName,
-            journalist.Email,
-            journalist.Phone,
-            journalist.Designation,
-            journalist.Firm,
+            Journalist.FullName,
+            Journalist.Email,
+            Journalist.Phone,
+            Journalist.Designation,
+            Journalist.Firm,
             true,
-            journalist.Password
+            Journalist.Password
         ], callback);
     },
     auth: function(email, password, callback) {
         console.log(email + " - " + password);
-        return db.query("SELECT * FROM `journalist` WHERE Email=? AND Password=?", [
+        return db.query("SELECT * FROM `Journalist` WHERE Email=? AND Password=?", [
             email,
             password
         ], callback);
     },
     delete: function(id, callback) {
-        return db.query("delete from journalist where Id=?", [id], callback);
+        return db.query("delete from Journalist where Id=?", [id], callback);
     },
-    update: function(journalist, callback) {
-        return db.query("UPDATE `journalist` SET `FullName`=?,`Email`=?,`Phone`=?,`Designation`=?,`Firm`=?,`IsApproved`=?,`Password`=? where 'Id'=?", [
-            journalist.FullName,
-            journalist.Email,
-            journalist.Phone,
-            journalist.Designation,
-            journalist.Firm,
+    update: function(Journalist, callback) {
+        return db.query("UPDATE `Journalist` SET `FullName`=?,`Email`=?,`Phone`=?,`Designation`=?,`Firm`=?,`IsApproved`=?,`Password`=? where 'Id'=?", [
+            Journalist.FullName,
+            Journalist.Email,
+            Journalist.Phone,
+            Journalist.Designation,
+            Journalist.Firm,
             true,
-            journalist.Password,
-            journalist.Id
+            Journalist.Password,
+            Journalist.Id
         ], callback);
     }
 
 };
 
-module.exports = journalist;
+module.exports = Journalist;
 /*
 `ID`=[value-1],
 `FullName`=[value-2],

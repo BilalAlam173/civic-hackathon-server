@@ -1,55 +1,55 @@
 const db = require("./dbconnection");
 
-var authority = {
+var Authority = {
 
     list: function(callback) {
 
-        return db.query("Select * from authority", callback);
+        return db.query("Select * from Authority", callback);
 
     },
     readOne: function(id, callback) {
 
-        return db.query("select * from authority where ID=?", [id], callback);
+        return db.query("select * from Authority where ID=?", [id], callback);
     },
-    create: function(authority, callback) {
-        return db.query("INSERT INTO `authority`(`ID`, `FullName`, `Email`, `Designation`, `Phone`, `Address`, `DOB`, `Password`) values(?,?,?,?,?,?,?,?)", [
+    create: function(Authority, callback) {
+        return db.query("INSERT INTO `Authority`(`ID`, `FullName`, `Email`, `Designation`, `Phone`, `Address`, `DOB`, `Password`) values(?,?,?,?,?,?,?,?)", [
             null,
-            authority.FullName,
-            authority.Email,
-            authority.Designation,
-            authority.Phone,
-            authority.Address,
-            authority.DOB,
-            authority.Password
+            Authority.FullName,
+            Authority.Email,
+            Authority.Designation,
+            Authority.Phone,
+            Authority.Address,
+            Authority.DOB,
+            Authority.Password
         ], callback);
     },
     auth:function(email,password,callback){
         console.log(email+" - "+password);
-        return db.query("SELECT * FROM `authority` WHERE email=? AND Password=?",
+        return db.query("SELECT * FROM `Authority` WHERE email=? AND Password=?",
         [
             email,
             password
         ],callback);
         },
     delete: function(id, callback) {
-        return db.query("delete from authority where ID=?", [id], callback);
+        return db.query("delete from Authority where ID=?", [id], callback);
     },
-    update: function(authority, callback) {
-        return db.query("UPDATE `authority` SET `FullName`=?,`Email`=?,`Designation`=?,`Phone`=?,`Address`=?,`DOB`=?,`Password`=? where ID=?", [
-            authority.FullName,
-            authority.Email,
-            authority.Designation,
-            authority.Phone,
-            authority.Address,
-            authority.DOB,
-            authority.Password,
-            authority.ID
+    update: function(Authority, callback) {
+        return db.query("UPDATE `Authority` SET `FullName`=?,`Email`=?,`Designation`=?,`Phone`=?,`Address`=?,`DOB`=?,`Password`=? where ID=?", [
+            Authority.FullName,
+            Authority.Email,
+            Authority.Designation,
+            Authority.Phone,
+            Authority.Address,
+            Authority.DOB,
+            Authority.Password,
+            Authority.ID
         ], callback);
     }
 
 };
 
-module.exports = authority;
+module.exports = Authority;
 /*
 `ID`=[value-1],
 `FullName`=[value-2],
